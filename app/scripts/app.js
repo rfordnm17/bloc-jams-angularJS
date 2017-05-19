@@ -1,11 +1,13 @@
  (function() {
      function config($stateProvider, $locationProvider) {
-          $locationProvider
+         
+        $locationProvider
          .html5Mode({
              enabled: true,
              requireBase: false
          });
-              $stateProvider
+         
+        $stateProvider
          .state('landing', {
              url: '/',
              controller: 'LandingCtrl as landing',
@@ -22,7 +24,9 @@
              templateUrl: '/templates/collection.html'
          });
      }
+     
      angular
          .module('blocJams', ['ui.router'])
          .config(config);
+     
  })();
