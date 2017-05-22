@@ -8,6 +8,19 @@
  * @type {Object}
  */
         var currentBuzzObject = null;
+ /**
+ @function playSong
+ @desc plays the current song
+ @ param ? Need help here
+ 
+ 
+ **/        
+    var playSong = function(){
+        
+        currentBuzzObject.play();
+        song.playing = true;
+        
+    };
          
  /**
  * @function setSong
@@ -37,8 +50,7 @@
                  
              } else if (currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
-                currentBuzzObject.play();
-                song.playing = true;
+               playSong();
          }
      }
      };
