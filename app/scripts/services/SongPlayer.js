@@ -15,14 +15,14 @@
  
  
  **/        
-    var playSong = function(){
+    var playSong = function(song){
         
         currentBuzzObject.play();
         song.playing = true;
         
     };
     
-    var stopSong = function(){
+    var stopSong = function(song){
         currentBuzzObject.stop();
         song.playing = null;
     };
@@ -35,7 +35,7 @@
          
          var setSong = function(song) {
             if (currentBuzzObject) {
-                stopSong();
+                stopSong(SongPlayer.currentSong);
             }
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -56,14 +56,14 @@
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
              if (SongPlayer.currentSong !== song) {
-            setSong(song);
-         currentBuzzObject.play(); 
+                setSong(song);
+                playSong(song); 
                  
              } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
-               playSong();
-         }
-     }
+                    playSong(song);
+                }
+             }
      };
          
           SongPlayer.pause = function(song) {
@@ -76,7 +76,7 @@
              var currentSongIndex = getSongIndex(SongPlayer.currentSong);
              currentSongIndex--;
                    if (currentSongIndex < 0) {
-                       stopSong();
+                       stopSong(SongPlayer.currentSong);
                 } else {
          var song = currentAlbum.songs[currentSongIndex];
          setSong(song);
@@ -87,8 +87,7 @@
              var currentSongIndex = getSongIndex(SongPlayer.currentSong);
              currentSongIndex++;
                    if (currentSongIndex > currentAlbum.songs.length) {
-                       currentBuzzObject.stop();
-                       SongPlayer.currentSong.playing = null;
+                       stopSong(SongPlayer.currentSong);
                 } else {
          var song = currentAlbum.songs[currentSongIndex];
          setSong(song);
