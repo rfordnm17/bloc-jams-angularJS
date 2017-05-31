@@ -94,6 +94,11 @@
          playSong(song);
      }
      };
+         SongPlayer.volume = null;
+         Songplayer.setVolume = function(){
+             
+             SongPlayer.volume = currentBuzzObject.setVolume();
+         };
           return SongPlayer;
      }
  
