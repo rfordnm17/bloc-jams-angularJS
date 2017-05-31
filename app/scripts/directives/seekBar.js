@@ -49,10 +49,10 @@
                      $document.unbind('mouseup.thumb');
                  });
              };
+        }
      };
-     }
  
      angular
          .module('blocJams')
          .directive('seekBar', ['$document', seekBar]);
- })();
+ }})();
