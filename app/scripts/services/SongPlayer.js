@@ -95,7 +95,7 @@
      }
      };
          SongPlayer.volume = null;
-         Songplayer.setVolume = function(){
+         SongPlayer.setVolume = function(){
              
              SongPlayer.volume = currentBuzzObject.setVolume();
          };
