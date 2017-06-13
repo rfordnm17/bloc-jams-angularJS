@@ -20,7 +20,7 @@
              scope.max = 100;
              
              var seekBar = $(element);
-             
+           
              attributes.$observe('value', function(newValue) {
                  scope.value = newValue;
              });
@@ -69,7 +69,7 @@
              
              scope.thumbStyle = function(){
                  
-                 return scope.trackThumb();
+                 return {left: percentString()};
              };
         }
      }};

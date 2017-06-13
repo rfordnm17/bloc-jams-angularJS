@@ -3,7 +3,7 @@
         
         return function(seconds) {
              var seconds = Number.parseFloat(seconds);
-            
+            console.log('test');
              if (Number.isNaN(seconds)) {
                  return '-:--';
                 }
